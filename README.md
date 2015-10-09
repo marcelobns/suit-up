@@ -1,1 +1,2 @@
-# suit-up
+# Suit-Up
+## FrontEnd Nice features
