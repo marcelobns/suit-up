@@ -1,0 +1,64 @@
+/*
+-----------------------------------------------
+Template for blogger
+Name:     Simple Template
+Designer: Marcelo Bonus
+URL:      www.github.com/marcelobns
+----------------------------------------------- */
+@media screen and (min-width: 768px) {
+	.container {width: 95%}
+}
+body {
+	font-family: Roboto, sans-serif;	
+}
+a {
+	color: #4184F3;
+	text-decoration:none;
+}
+#header-outer {
+	border-bottom: 1px solid #e0e0e0;
+	padding: 0px;
+}
+
+.section {
+	margin:auto;
+	padding:auto;
+}
+.container {
+	max-width: 1050px;
+}
+
+.header-inner {
+	min-height: 250px;
+	position: relative;
+}
+.header-logo img{
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 200px;
+	margin: auto;
+}
+.header-left {
+
+}
+.header-title h2 {
+	font-family: Roboto, sans-serif;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 32px;
+	margin-bottom: 7px;
+}
+.header-title a {
+	color: #212121;
+	text-decoration:none;
+}
+.header-desc {
+	line-height: 20px;
+	margin-bottom: 4px;
+	max-width: 260px;
+}
+img {
+	max-width:100%;
+	height:auto;
+}
