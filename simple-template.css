@@ -6,7 +6,15 @@
 	<meta content='IE=9; IE=8; IE=7; IE=EDGE; chrome=1' http-equiv='X-UA-Compatible'/>
     <b:include data='blog' name='all-head-content'/>
     <title>
-      <data:blog.pageTitle/>
+		<b:if cond='data:blog.pageType == &quot;index&quot;'>
+			<data:blog.pageTitle/> - <data:blog.metaDescription/>
+		<b:else/>
+			<b:if cond='data:blog.pageType != &quot;error_page&quot;'>
+				<data:blog.pageName/> - <data:blog.title/>
+			<b:else/>
+				ERROR 404 - <data:blog.title/> 
+			</b:if>
+		</b:if>
     </title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400italic,400,500,500italic,700,700italic' rel='stylesheet' type='text/css'/>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet'/>
@@ -101,6 +109,9 @@ color: #575757;
 }
 .widget ul {
 list-style: none;
+padding: 0 0 0 2em;
+margin: auto;
+line-height: 1.5;
 }
 .widget {
 font-size: 15px;
@@ -111,7 +122,7 @@ font-size: 14px;
 color: #ccc;
 }
 .widget-content{
-margin: 0px 20px;
+margin: 0px 10%;
 padding-bottom: 15px;
 }
 .post-thumb {
@@ -274,6 +285,13 @@ margin: auto!important;
 h2 .fa{
 	margin-right: 15px;
 }
+.post-body img{
+	margin:auto;
+}
+.widget{
+	margin: 0px;
+	margin-bottom: 30px;
+}
     ]]></b:skin>
     <b:template-skin>
       <b:variable default='960px' name='content.width' type='length' value='860px'/>
@@ -414,6 +432,9 @@ head.appendChild(script);
                   <h5 class='header-desc'>
                     <data:description/>
                   </h5>
+                </div>
+				<div class='col-xs-12 visible-xs-block text-right'>
+                    <data:description/>
                 </div>
               </b:if>
             </b:if>
@@ -1571,20 +1592,17 @@ head.appendChild(script);
   </div>
 </b:includable>
   </b:widget>
-  <b:widget id='BlogArchive2' locked='false' title='Arquivo do blog' type='BlogArchive' visible='true'>
+  <b:widget id='BlogArchive2' locked='false' title='Arquivo' type='BlogArchive' version='1' visible='true'>
     <b:includable id='main'>
   <b:if cond='data:title != &quot;&quot;'>
 <style>
 .widget label{
 	font-weight:normal;
 }
-.widget .accordion {
-	padding-bottom: 0;
-}
 .widget .side-label:hover:after,
 .widget input:checked + .side-label:hover:after{
-	font-family:'FontAwesome';
-	content: '\f0d7';
+	font-family:&#39;FontAwesome&#39;;
+	content: &#39;\f0d7&#39;;
 	position: absolute;
 	width: 24px;
 	height: 24px;
@@ -1592,14 +1610,15 @@ head.appendChild(script);
 
 }
 .widget input:checked + .side-label:hover:after{	
-	content: '\f0d8';
+	content: &#39;\f0d8&#39;;
 }
 .widget input[type=checkbox]{
 	display: none;
 }
 .widget .accordion{
 	padding-left: 15px;
-	margin-top: -1px;
+	padding-bottom: 0;
+	margin-top: 25px!important;
 	overflow: hidden;
 	height: 0px;
 	position: relative;
@@ -1611,8 +1630,8 @@ head.appendChild(script);
     overflow-y: auto;
 }
 		</style>
-		<input id="ac-1" name="accordion-1" type="checkbox" />
-    	<h2 class='side-label'><label for="ac-1"><i class='fa fa-folder fa-lg'></i> <data:title/></label></h2>
+		<input id='ac-1' name='accordion-1' type='checkbox'/>
+    	<h2 class='side-label'><label for='ac-1'><i class='fa fa-folder fa-lg'/> <data:title/></label></h2>
   </b:if>
   <div class='widget-content accordion'>
 	<div id='ArchiveList'>	
@@ -1859,4 +1878,5 @@ head.appendChild(script);
   </div>
 </b:includable>
   </b:widget>
-</b:section-contents></html>
+</b:section-contents>
+</html>
